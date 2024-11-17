@@ -1,5 +1,6 @@
 package org.example.controllers;
 
+import jakarta.validation.Valid;
 import org.example.models.Product;
 import org.example.models.StatisticsResponse;
 import org.example.payload.request.ProductRequest;
@@ -15,6 +16,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -78,6 +80,7 @@ public class ProductController {
     }
 
     @PostMapping("/products/add")
+    @PreAuthorize("hasRole('admin')")
     public ResponseEntity<Product> addsingleProduct(@RequestBody ProductRequest productRequest) {
         try {
             Product newProduct = addProduct(productRequest.getName(), productRequest.getPrice(),

@@ -1,6 +1,9 @@
 package org.example.payload.request;
 
 import jakarta.validation.constraints.NotBlank;
+import org.example.models.Role;
+
+import java.util.Set;
 
 public class LoginRequest {
 	@NotBlank
@@ -11,7 +14,7 @@ public class LoginRequest {
 
 	private String email;
 
-	private String role;
+	private Set<Role> role;
 	private boolean active = true; // Default to active
 
 	public String getUsername() {
@@ -36,11 +39,11 @@ public class LoginRequest {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getRole() {
+	public Set<Role> getRole() {
 		return role;
 	}
 
-	public void setRole(String role) {
+	public void setRole(Set<Role> role) {
 		this.role = role;
 	}
 	public boolean isActive() {

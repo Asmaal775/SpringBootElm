@@ -9,9 +9,7 @@ import java.util.List;
 @Table(name = "product",
     uniqueConstraints = { 
       @UniqueConstraint(columnNames = "id"),
-      @UniqueConstraint(columnNames = "name"),
-      @UniqueConstraint(columnNames = "price") ,
-      @UniqueConstraint(columnNames = "status")
+
     })
 public class Product {
   @Id

@@ -17,6 +17,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 //  Optional<Product> findByProductname(String name);
 //
 //  Boolean existsByProduct(String exists);
+
+ //JPQL (Java Persistence Query Language)
 @Query("SELECT p FROM Product p WHERE p.status = 'Active'")
 Page<Product> findAllActiveProducts(Pageable pageable);
 @Query("SELECT COUNT(p) FROM Product p WHERE p.status = 'Active' AND p.createdAt BETWEEN :fromDate AND :toDate")
